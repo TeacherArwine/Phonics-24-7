@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phonics 24/7 by Teacher Arwine</title>
+  <!-- Library Konfeti untuk Efek WOW -->
+  <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <!-- Import Google Fonts (Idlewild / Bungee / Fredoka style) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="hub-card" id="hubCard">
+    <div class="header-title rainbow-title" role="heading" aria-level="1" aria-label="Phonics 24/7"><span aria-hidden="true" style="--ink:#ff6bcb;--phase:-0.00s;--color-phase:-0s">P</span><span aria-hidden="true" style="--ink:#ffad33;--phase:-0.14s;--color-phase:-1s">h</span><span aria-hidden="true" style="--ink:#fff23b;--phase:-0.28s;--color-phase:-2s">o</span><span aria-hidden="true" style="--ink:#70ff78;--phase:-0.42s;--color-phase:-3s">n</span><span aria-hidden="true" style="--ink:#35e4ff;--phase:-0.56s;--color-phase:-4s">i</span><span aria-hidden="true" style="--ink:#aaa0ff;--phase:-0.70s;--color-phase:-5s">c</span><span aria-hidden="true" style="--ink:#ef86ff;--phase:-0.84s;--color-phase:-6s">s</span><span class="rainbow-space" aria-hidden="true">&nbsp;</span><span aria-hidden="true" style="--ink:#ffad33;--phase:-0.98s;--color-phase:-0s">2</span><span aria-hidden="true" style="--ink:#fff23b;--phase:-1.12s;--color-phase:-1s">4</span><span aria-hidden="true" style="--ink:#70ff78;--phase:-1.26s;--color-phase:-2s">/</span><span aria-hidden="true" style="--ink:#35e4ff;--phase:-1.40s;--color-phase:-3s">7</span></div>
+    <div class="header-subtitle rainbow-byline" aria-label="by Teacher Arwine"><span aria-hidden="true" style="--ink:#ff6bcb;--phase:-0.00s;--color-phase:-4s">b</span><span aria-hidden="true" style="--ink:#ffad33;--phase:-0.14s;--color-phase:-5s">y</span><span class="rainbow-space" aria-hidden="true">&nbsp;</span><span aria-hidden="true" style="--ink:#70ff78;--phase:-0.28s;--color-phase:-6s">T</span><span aria-hidden="true" style="--ink:#35e4ff;--phase:-0.42s;--color-phase:-0s">e</span><span aria-hidden="true" style="--ink:#aaa0ff;--phase:-0.56s;--color-phase:-1s">a</span><span aria-hidden="true" style="--ink:#ef86ff;--phase:-0.70s;--color-phase:-2s">c</span><span aria-hidden="true" style="--ink:#ff6bcb;--phase:-0.84s;--color-phase:-3s">h</span><span aria-hidden="true" style="--ink:#ffad33;--phase:-0.98s;--color-phase:-4s">e</span><span aria-hidden="true" style="--ink:#fff23b;--phase:-1.12s;--color-phase:-5s">r</span><span class="rainbow-space" aria-hidden="true">&nbsp;</span><span aria-hidden="true" style="--ink:#35e4ff;--phase:-1.26s;--color-phase:-6s">A</span><span aria-hidden="true" style="--ink:#aaa0ff;--phase:-1.40s;--color-phase:-0s">r</span><span aria-hidden="true" style="--ink:#ef86ff;--phase:-1.54s;--color-phase:-1s">w</span><span aria-hidden="true" style="--ink:#ff6bcb;--phase:-1.68s;--color-phase:-2s">i</span><span aria-hidden="true" style="--ink:#ffad33;--phase:-1.82s;--color-phase:-3s">n</span><span aria-hidden="true" style="--ink:#fff23b;--phase:-1.96s;--color-phase:-4s">e</span></div>
+
+    <div class="inner-container">
+      <div class="nav-tabs">
+        <button class="tab-btn active" onclick="switchTab(event, 'level1Tab')">🔤 Bunyi Asas (A-Z)</button>
+        <button class="tab-btn" onclick="switchTab(event, 'blendTab')">🔗 Gabung Bunyi</button>
+        <button class="tab-btn" onclick="switchTab(event, 'wordsTab')">📖 Perkataan CVC</button>
+        <button class="tab-btn" onclick="switchTab(event, 'sentenceTab')">📝 Ayat Mudah</button>
+        <button class="tab-btn" onclick="switchTab(event, 'quizTab')">🎯 Kuiz Ejaan</button>
+      </div>
+
+      <div class="audio-toolbar">
+        <span id="audioStatus" role="status" aria-live="polite">Sedia. Pilih huruf atau perkataan.</span>
+        <button type="button" class="stop-audio" onclick="stopAllAudio()">⏹ Henti audio</button>
+      </div>
+
+      <div class="main-box">
+        
+        <!-- TAB 1: 26 HURUF A-Z -->
+        <div id="level1Tab" class="tab-content active">
+          <div class="instruction-box">
+            🔤 Tekan kad: NAMA HURUF → BUNYI FONIK.<br>Atau pilih butang <strong>Nama</strong> / <strong>Bunyi</strong>.
+          </div>
+          <div class="grid-az" id="level1Container"></div>
+          <details class="teacher-note">
+            <summary>Nota sebutan untuk guru</summary>
+            <p>Kad R memainkan R bergetar [r] untuk latihan lidah. Latihan perkataan English menggunakan rakaman R English asal.</p>
+            <p>Kad A dan huruf a dalam Gabung Bunyi menggunakan rakaman “ae” yang sama, mengikut pilihan cikgu. Sebutan perkataan penuh kekal dalam bahasa Inggeris.</p>
+            <p>Vokal pendek: a /æ/ (apple), e /e/ (egg), i /ɪ/ (sit), o /ɒ/ (hot), u /ʌ/ (cup).</p>
+            <p>Bunyi asas c ialah /k/ dan g ialah /ɡ/. q dipelajari bersama u: qu /kw/. x dalam box mewakili /k/ + /s/. y dalam yes ialah /j/.</p>
+            <p>Nama huruf Z ialah “zed”. Huruf boleh mempunyai bunyi lain dalam perkataan berbeza.</p>
+            <p>Rakaman bunyi fonik British disertakan dalam fail dan boleh dimainkan tanpa internet. Nama A (ae) dan F (eff) turut menggunakan rakaman. Nama huruf lain, perkataan dan ayat menggunakan suara English pada peranti.</p>
+            <p id="voiceInfo"></p>
+            <p>Rakaman asas: <a href="https://www.yellow-door.net/products/free-phonic-sounds-alphabet/" target="_blank" rel="noopener noreferrer">Yellow Door — Phonic Sounds Alphabet</a>. Hak cipta rakaman milik Yellow Door Ltd.</p>
+            <p>Rakaman bunyi a, l, n, r dan nama A: <a href="https://cdn.oxfordowl.co.uk/2016/05/05/20/22/32/561/20097_content/index.html?id=ae" target="_blank" rel="noopener noreferrer">Oxford Owl — Phonics</a>. Hak cipta rakaman milik Oxford University Press. Kelantangan audio telah diselaraskan.</p>
+            <p>Rakaman bunyi f /f/ dan nama F (eff): <a href="https://dictionary.cambridge.org/us/pronunciation/english/f" target="_blank" rel="noopener noreferrer">Cambridge Dictionary — /f/ as in fish</a>. Hak cipta Cambridge University Press. Audio dilaraskan untuk latihan fonik.</p>
+            <p>Rakaman R bergetar: <a href="https://commons.wikimedia.org/wiki/File:Alveolar_trill.ogg" target="_blank" rel="noopener noreferrer">Peter Isotalo — Alveolar trill</a>. Dipotong, diulang dengan sambungan lembut dan dilaraskan kelantangannya. Adaptasi audio R ini berlesen <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>.</p>
+            <p>Sumber rakaman tambahan a pendek /æ/: <a href="https://dictionary.cambridge.org/pronunciation/english/cat" target="_blank" rel="noopener noreferrer">Cambridge Dictionary — /æ/ as in hat</a>. Hak cipta Cambridge University Press. Ruang senyap dipendekkan dan kelantangan diselaraskan.</p>
+            <p>Rujukan: <a href="https://home.oxfordowl.co.uk/jargon_buster/pure-sounds/" target="_blank" rel="noopener noreferrer">Oxford Owl — Pure sounds</a>.</p>
+          </details>
+        </div>
+
+        <!-- TAB 2: GABUNG BUNYI -->
+        <div id="blendTab" class="tab-content">
+          <div class="instruction-box">
+            🔗 CVC: dengar setiap bunyi, kemudian gabungkan.<br>2–3 suku kata: dengar sebutan perkataan penuh.
+          </div>
+          <div class="filter-btn-group">
+            <button class="filter-btn active" onclick="filterBlend('all', this)">Semua (50)</button>
+            <button class="filter-btn" onclick="filterBlend(1, this)">1 Suku Kata (15)</button>
+            <button class="filter-btn" onclick="filterBlend(2, this)">2 Suku Kata (20)</button>
+            <button class="filter-btn" onclick="filterBlend(3, this)">3 Suku Kata (15)</button>
+          </div>
+          <div class="blend-container" id="blendDisplayArea"></div>
+        </div>
+
+        <!-- TAB 3: PERKATAAN CVC -->
+        <div id="wordsTab" class="tab-content">
+          <div class="instruction-box">
+            📖 Perkataan CVC & Suku Kata Ringkas
+          </div>
+          <div class="filter-btn-group">
+            <button class="filter-btn active" onclick="filterWords('all', this)">Semua (50)</button>
+            <button class="filter-btn" onclick="filterWords(1, this)">1 Suku Kata (15)</button>
+            <button class="filter-btn" onclick="filterWords(2, this)">2 Suku Kata (20)</button>
+            <button class="filter-btn" onclick="filterWords(3, this)">3 Suku Kata (15)</button>
+          </div>
+          <div class="grid-az" id="wordsContainer"></div>
+        </div>
+
+        <!-- TAB 4: AYAT MUDAH -->
+        <div id="sentenceTab" class="tab-content">
+          <div class="instruction-box">
+            📝 Tekan kad untuk bacaan perlahan. Dengar, kemudian ikut sebut.<br>Suara kanak-kanak digunakan jika tersedia pada peranti.
+          </div>
+          <div class="grid-sentence" id="sentenceContainer"></div>
+        </div>
+
+        <!-- TAB 5: KUIZ EJAAN -->
+        <div id="quizTab" class="tab-content">
+          <div class="instruction-box">
+            🎯 Dengarkan sebutan, kemudian susun huruf dengan betul!
+          </div>
+          <div class="game-container">
+            <div style="font-weight:900; font-size:18px;" id="quizCounter">Soalan 1</div>
+            <button class="play-audio-btn" onclick="playQuizAudio()">🔊 Dengar Perkataan</button>
+            <div class="spelling-box" id="spellingSlots"></div>
+            <div class="letter-pool" id="letterPool"></div>
+            <div class="feedback-text" id="quizFeedback"></div>
+            <div class="btn-group">
+              <button class="action-btn hv-pink" onclick="resetSpelling()">Reset 🔄</button>
+              <button class="action-btn hv-yellow" onclick="prevQuizQuestion()">⬅️ Sebelum</button>
+              <button class="action-btn" onclick="nextQuizQuestion()">Seterusnya ➡️</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
